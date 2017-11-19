@@ -6,8 +6,15 @@
         tools:showIn="@layout/activity_movie_detail"
         tools:context=".ui.moviedetail.MovieDetailActivity"
 >
+
   <data>
-    <variable name="movie" type="com.mhmt.movies.domain.Movie"/>
+
+    <import type="android.view.View" />
+
+    <variable
+        name="viewModel"
+        type="com.mhmt.movies.ui.moviedetail.MovieDetailViewModel" />
+
   </data>
   <ScrollView
       android:layout_width="match_parent"
@@ -33,95 +40,95 @@
 
       <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{movie.title}"
+                android:text="@{viewModel.movie.get().title}"
       />
       <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{movie.year}"
+                android:text="@{viewModel.movie.get().year}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.rated}"
+                android:text="@{viewModel.movie.get().rated}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.released}"
+                android:text="@{viewModel.movie.get().released}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.runtime}"
+                android:text="@{viewModel.movie.get().runtime}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.genre}"
+                android:text="@{viewModel.movie.get().genre}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.director}"
+                android:text="@{viewModel.movie.get().director}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.writer}"
+                android:text="@{viewModel.movie.get().writer}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.actors}"
+                android:text="@{viewModel.movie.get().actors}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.plot}"
+                android:text="@{viewModel.movie.get().plot}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.language}"
+                android:text="@{viewModel.movie.get().language}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.country}"
+                android:text="@{viewModel.movie.get().country}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.awards}"
+                android:text="@{viewModel.movie.get().awards}"
       />
       <!--<TextView android:layout_width="match_parent"-->
       <!--android:layout_height="wrap_content"-->
-      <!--android:text="@{movie.ratings}"-->
+      <!--android:text="@{viewModel.movie.get().ratings}"-->
       <!--/>-->
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.metaScore}"
+                android:text="@{viewModel.movie.get().metaScore}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.imdbRating}"
+                android:text="@{viewModel.movie.get().imdbRating}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.imdbVotes}"
+                android:text="@{viewModel.movie.get().imdbVotes}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.imdbID}"
+                android:text="@{viewModel.movie.get().imdbID}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.type}"
+                android:text="@{viewModel.movie.get().type}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.dvd}"
+                android:text="@{viewModel.movie.get().dvd}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.boxOffice}"
+                android:text="@{viewModel.movie.get().boxOffice}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.production}"
+                android:text="@{viewModel.movie.get().production}"
       />
       <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.website}"
+                android:text="@{viewModel.movie.get().website}"
       />
 
 

@@ -4,7 +4,13 @@
         xmlns:tools="http://schemas.android.com/tools">
 
   <data>
-    <variable name="movie" type="com.mhmt.movies.domain.Movie"/>
+
+    <import type="android.view.View" />
+
+    <variable
+        name="viewModel"
+        type="com.mhmt.movies.ui.moviedetail.MovieDetailViewModel" />
+
   </data>
 
   <android.support.design.widget.CoordinatorLayout
@@ -28,7 +34,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_movie_detail"
-             app:movie="@{movie}"/>
+             app:viewModel="@{viewModel}"/>
 
   </android.support.design.widget.CoordinatorLayout>
 

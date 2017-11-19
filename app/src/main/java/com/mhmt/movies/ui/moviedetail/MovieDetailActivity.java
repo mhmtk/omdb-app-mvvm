@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.mhmt.movies.BR;
 import com.mhmt.movies.Constant;
 import com.mhmt.movies.R;
 import com.mhmt.movies.databinding.ActivityMovieDetailBinding;
@@ -16,13 +17,14 @@ import com.mhmt.movies.ui.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MovieDetailActivity extends BaseActivity implements MovieDetailMvpView {
+public class MovieDetailActivity extends BaseActivity {
 
-  private MovieDetailPresenter presenter;
-  private ActivityMovieDetailBinding  binding;
+  private ActivityMovieDetailBinding binding;
 
   @BindView(R.id.image_view_poster)
   protected ImageView imageView;
+
+  MovieDetailViewModel movieDetailViewModel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +37,13 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailMvpV
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-    presenter = new MovieDetailPresenter(getIntent().getStringExtra(Constant.Navigation.IMDB_ID));
-    presenter.onCreate(this);
+    movieDetailViewModel = new MovieDetailViewModel(getIntent().getStringExtra(Constant.Navigation.IMDB_ID));
+    binding.setVariable(BR.viewModel, movieDetailViewModel);
+    movieDetailViewModel.loadMovie();
   }
 
   @Override protected void onResume() {
     super.onResume();
-    presenter.onResume();
   }
 
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
@@ -55,19 +57,13 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailMvpV
 
   @Override protected void onPause() {
     super.onPause();
-    presenter.onPause();
   }
 
   @Override protected void onDestroy() {
     super.onDestroy();
-    presenter.onDestroy();
   }
 
-  @Override public void updateData(final Movie movie) {
-    binding.setMovie(movie);
-  }
-
-  @Override public void showPoster(final Bitmap posterBitmap) {
-    imageView.setImageBitmap(posterBitmap);
-  }
+//  public void showPoster(final Bitmap posterBitmap) {
+//    imageView.setImageBitmap(posterBitmap);
+//  }
 }
