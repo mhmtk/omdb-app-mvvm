@@ -8,6 +8,7 @@ import com.mhmt.movies.domain.Movie;
 import com.mhmt.movies.helper.JsonObjectMapper;
 import com.mhmt.movies.jobs.Api;
 
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
@@ -16,6 +17,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 public class MovieDetailViewModel {
 
   public final ObservableField<Movie> movie = new ObservableField<>();
+  public final ObservableField<String> poster = new ObservableField<>();
 
   private final String movieId;
   private final Api api;
@@ -39,14 +41,10 @@ public class MovieDetailViewModel {
        .observeOn(AndroidSchedulers.mainThread())
        .subscribe(m -> {
          movie.set(m);
-         loadPoster(m.getPoster());
+         poster.set(m.getPoster());
        }, throwable -> {
          // handle error event
        });
 
-  }
-
-  private void loadPoster(String posterUrl) {
-    api.getPoster(posterUrl);
   }
 }
